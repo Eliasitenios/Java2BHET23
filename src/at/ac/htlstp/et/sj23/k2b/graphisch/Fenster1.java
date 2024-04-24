@@ -1,28 +1,26 @@
 package at.ac.htlstp.et.sj23.k2b.graphisch;
 
 import java.awt.*;
-import java.awt.event.WindowEvent;
-import java.awt.event.WindowListener;
+import java.awt.event.*;
 
 public class Fenster1 extends Frame implements WindowListener {
 
     public Fenster1(String name, int width, int height) {
         this.setTitle(name);
-        this.setSize(width, height);
-        // Registrieren der Event - Händler
+        this.setSize(width,height);
+        // Registrieren der Event-Handler
         this.addWindowListener(this);
         this.setVisible(true);
     }
 
     public static void main(String[] args) {
-        new Fenster1("Hallo Welt",800,600);
+        new Fenster1("Hallo Welt!",800,600);
     }
-
 
     @Override
     public void paint(Graphics g) {
-        g.setColor(Color.green);
-        g.drawLine(100, 100, 400, 200);
+        g.setColor(Color.red);
+        g.drawLine(100,100,400,200);
     }
 
     /**
