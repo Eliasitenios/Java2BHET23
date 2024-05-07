@@ -17,15 +17,17 @@ public class Minipaint extends MyFrameMT {
     private Color fillColor = Color.red;
     private int thickness = 1;
 
-    public static void main(String[] args) {new Minipaint();
+    public static void main(String[] args) {
+        new Minipaint();
     }
 
     public Minipaint() {
-        super("Minipaint",800,600);
+        super("Minipaint", 800, 600);
         //objects.add(new Linie(new Point(100, 100), new Point(200, 200), Color.blue, null, 1));
         //objects.add(new Rechteck(new Point(200, 100), new Point(500, 200), Color.red, Color.green, 1));
         this.setVisible(true);
     }
+
     @Override
     public void paint(Graphics g) {
         for (paintable o : objects) {
@@ -43,7 +45,7 @@ public class Minipaint extends MyFrameMT {
     public void mousePressed(MouseEvent e) {
         switch (mode) {
             case LINIE -> {
-                Linie linie = new Linie(e.getPoint(),e.getPoint(),drawColor,fillColor,thickness);
+                Linie linie = new Linie(e.getPoint(), e.getPoint(), drawColor, fillColor, thickness);
                 selected = linie;
                 objects.add(linie);
                 mode = PaintMode.CREATE;
@@ -62,8 +64,29 @@ public class Minipaint extends MyFrameMT {
     public void mouseReleased(MouseEvent e) {
         switch (mode) {
             case CREATE -> {
-                selected.set
+                if (selected instanceof Zweipunkt) {
+                    Zweipunkt zweipunkt = (Zweipunkt) selected;
+                    zweipunkt.setP2(e.getPoint());
+                    repaint();
+                    if (zweipunkt instanceof Linie) mode = PaintMode.LINIE;
+                    else if (zweipunkt instanceof Rechteck) mode = PaintMode.RECHTECK;
+                    else mode = PaintMode.LINIE;
+                }
+            }
+        }
+    }
+
+    @Override
+    public void mouseDragged(MouseEvent e) {
+        switch (mode) {
+            case CREATE -> {
+                if (selected instanceof Zweipunkt) {
+                    Zweipunkt zweipunkt = (Zweipunkt) selected;
+                    zweipunkt.setP2(e.getPoint());
+                    repaint();
+                }
             }
         }
     }
 }
+
