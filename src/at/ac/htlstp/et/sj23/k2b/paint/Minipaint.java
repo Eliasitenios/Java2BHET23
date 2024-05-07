@@ -11,6 +11,8 @@ import java.util.Vector;
 public class Minipaint extends MyFrameMT {
 
     private Vector<paintable> objects = new Vector<paintable>();
+    private PaintMode mode = PaintMode.LINIE;
+    private paintable selected = null;
 
     public static void main(String[] args) {
         new Minipaint();
@@ -38,10 +40,15 @@ public class Minipaint extends MyFrameMT {
 
     @Override
     public void mousePressed(MouseEvent e) {
-
-
+        switch (mode) {
+            case LINIE -> {
+            }
+            case RECHTECK -> {
+            }
+            case OVAL -> {
+            }
+            case CREATE -> {
+            }
+        }
     }
-
-
-
 }
