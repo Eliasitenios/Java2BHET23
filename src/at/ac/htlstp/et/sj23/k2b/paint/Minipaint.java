@@ -57,4 +57,13 @@ public class Minipaint extends MyFrameMT {
             }
         }
     }
+
+    @Override
+    public void mouseReleased(MouseEvent e) {
+        switch (mode) {
+            case CREATE -> {
+                selected.set
+            }
+        }
+    }
 }
