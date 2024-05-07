@@ -13,16 +13,17 @@ public class Minipaint extends MyFrameMT {
     private Vector<paintable> objects = new Vector<paintable>();
     private PaintMode mode = PaintMode.LINIE;
     private paintable selected = null;
+    private Color drawColor = Color.BLACK;
+    private Color fillColor = Color.red;
+    private int thickness = 1;
 
-    public static void main(String[] args) {
-        new Minipaint();
-
+    public static void main(String[] args) {new Minipaint();
     }
 
     public Minipaint() {
         super("Minipaint",800,600);
-        objects.add(new Linie(new Point(100, 100), new Point(200, 200), Color.blue, null, 1));
-        objects.add(new Rechteck(new Point(200, 100), new Point(500, 200), Color.red, Color.green, 1));
+        //objects.add(new Linie(new Point(100, 100), new Point(200, 200), Color.blue, null, 1));
+        //objects.add(new Rechteck(new Point(200, 100), new Point(500, 200), Color.red, Color.green, 1));
         this.setVisible(true);
     }
     @Override
@@ -42,6 +43,11 @@ public class Minipaint extends MyFrameMT {
     public void mousePressed(MouseEvent e) {
         switch (mode) {
             case LINIE -> {
+                Linie linie = new Linie(e.getPoint(),e.getPoint(),drawColor,fillColor,thickness);
+                selected = linie;
+                objects.add(linie);
+                mode = PaintMode.CREATE;
+                repaint();
             }
             case RECHTECK -> {
             }
