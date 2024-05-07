@@ -5,12 +5,19 @@ public class Rechteck extends Zweipunkt {
 
     public Rechteck(Point p1, Point p2, Color color, Color fillcolor, int thickness) {
         super(p1, p2, color, fillcolor, thickness);
-
     }
 
     @Override
     public void paint(Graphics g) {
-        g.setColor(getFillColor());
+        if (getFillColor()!=null) {
+            g.setColor(getFillColor());
+            g.fillRect(getP1().x, getP1().y,
+                    getP2().x - getP1().x, getP2().y - getP1().y);
+        }
+        g.setColor(getColor());
+        g.drawRect(getP1().x, getP1().y,
+                getP2().x - getP1().x, getP2().y - getP1().y);
+
 
     }
 }
