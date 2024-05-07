@@ -19,7 +19,8 @@ public class Minipaint extends MyFrameMT {
 
     public Minipaint() {
         super("Minipaint",800,600);
-
+        objects.add(new Linie(new Point(100, 100), new Point(200, 200), Color.blue, null, 1));
+        objects.add(new Linie(new Point(200, 100), new Point(500, 200), Color.red, null, 1));
         this.setVisible(true);
     }
     @Override
