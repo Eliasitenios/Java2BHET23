@@ -3,6 +3,7 @@ package at.ac.htlstp.et.sj23.k2b.paint;
 
 import at.ac.htlstp.et.sj23.k2b.graphisch.MyFrameMT;
 
+import javax.swing.*;
 import java.awt.*;
 import java.awt.event.KeyEvent;
 import java.awt.event.MouseEvent;
@@ -23,6 +24,11 @@ public class Minipaint extends MyFrameMT {
 
     public Minipaint() {
         super("Minipaint", 800, 600);
+        // Setze das benutzerdefinierte Fensterlogo
+        ImageIcon icon = new ImageIcon("C:\\Users\\elias\\Documents\\paintlogo.png");
+        setIconImage(icon.getImage());
+
+
         //objects.add(new Linie(new Point(100, 100), new Point(200, 200), Color.blue, null, 1));
         //objects.add(new Rechteck(new Point(200, 100), new Point(500, 200), Color.red, Color.green, 1));
         this.setVisible(true);
@@ -87,6 +93,13 @@ public class Minipaint extends MyFrameMT {
                 }
             }
         }
+    }
+
+    @Override
+    public void mouseMoved(MouseEvent e) {
+        double d = selected instanceof Selectable ? ((Selectable) selected).distanceTo(e.getPoint()) : 1000;
+        System.out.println("d="+d);
+
     }
 }
 

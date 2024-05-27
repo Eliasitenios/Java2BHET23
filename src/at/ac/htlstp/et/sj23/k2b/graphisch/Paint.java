@@ -97,5 +97,7 @@ public class Paint  extends MyFrameMT {
             }
         }
 
+
+
     }
 
