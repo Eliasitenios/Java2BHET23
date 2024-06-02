@@ -3,7 +3,7 @@ package at.ac.htlstp.et.sj23.k2b.graphisch;
 import java.awt.event.*;
 
 public abstract class MyFrameMT
-    extends MyFrame
+        extends MyFrame
         implements KeyListener, MouseMotionListener, MouseWheelListener, MouseListener {
     public MyFrameMT(String title, int width, int height) {
         super(title, width, height);
@@ -58,4 +58,3 @@ public abstract class MyFrameMT
 
     }
 }
-

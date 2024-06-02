@@ -4,8 +4,8 @@ public enum MANIPULATIONSMODE {
 
     /** normale Eingabe */
     NORMAL,
-    /** vergößern des Kreises */
+    /** vergrößern des Kreises */
     RESIZE,
-    /**verschieben des Kreises */
+    /** verschieben des Kreises */
     MOVE
 }

@@ -17,7 +17,6 @@ public abstract class MyFrame
     @Override
     public abstract void paint(Graphics g);
 
-
     @Override
     public void componentResized(ComponentEvent e) {
         this.repaint();
